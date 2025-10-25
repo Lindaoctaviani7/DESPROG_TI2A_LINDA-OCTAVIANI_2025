@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book Management - Form & Kuis Sederhana</title>
+
+  <!-- FontAwesome optional -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>Book Management</h1>
+      <p class="subtitle">Sistem pengelolaan koleksi — contoh HTML, CSS, jQuery, PHP (PHP array)</p>
+    </div>
+  </header>
+
+  <main class="wrap main-grid">
+    <!-- Form -->
+    <section class="card" id="formCard">
+      <h2>Input Data Buku / Pengguna</h2>
+      <form id="mainForm" method="POST" action="proses.php" novalidate>
+        <!-- field names: name, email, comment -->
+        <div class="form-row">
+          <label for="name">Nama</label>
+          <input type="text" id="name" name="name" placeholder="Masukkan nama...">
+          <div class="error" id="err-name"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="contoh@domain.com">
+          <div class="error" id="err-email"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="comment">Komentar / Deskripsi</label>
+          <textarea id="comment" name="comment" placeholder="Tulis komentar minimal 10 karakter..."></textarea>
+          <div class="error" id="err-comment"></div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary"><i class="fa-solid fa-paper-plane"></i> Kirim</button>
+          <button type="button" class="btn ghost" id="clearBtn">Bersihkan</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Collection / Preview -->
+    <section class="card" id="collectionCard">
+      <h2>Daftar Koleksi (sementara)</h2>
+      <p class="muted">Data disimpan sementara di session (PHP). Untuk lihat semua data: <a href="data.php">Lihat Data</a></p>
+
+      <div id="previewList" class="preview-list">
+        <!-- preview singkat hasil kirim terakhir akan ditampilkan di sini setelah redirect -->
+        <p class="muted">Belum ada data. Isi form di samping lalu klik kirim.</p>
+      </div>
+
+      <div class="wireframe">
+        <h3>Wireframe / Prototype</h3>
+        <!-- sederhana, grayscale mockup -->
+        <div class="wf-header">Header</div>
+        <div class="wf-two">
+          <div class="wf-box">Form</div>
+          <div class="wf-box">Daftar</div>
+        </div>
+        <p class="small muted">Prototype ini hanya contoh layout sebelum implementasi.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>Created by: Mahasiswa - Proyek Praktikum</small>
+    </div>
+  </footer>
+</body>
+</html>

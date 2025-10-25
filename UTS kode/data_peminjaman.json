@@ -1,0 +1,13 @@
+[
+    {
+        "id": "PJ-68fc941cdb944",
+        "nama": "LINDA OCTAVIANI",
+        "email": "lindaoctaviani29@gmail.com",
+        "judul_buku": "habis gelap terbitlah terang",
+        "lama_peminjaman": 14,
+        "tanggal_pinjam": "2025-10-25",
+        "tanggal_kembali": "2025-11-08",
+        "komentar": "pinjam dulu ya, 2 minggu lagi kubalikin",
+        "status": "Dipinjam"
+    }
+]

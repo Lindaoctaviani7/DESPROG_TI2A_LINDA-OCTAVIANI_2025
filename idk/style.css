@@ -1,0 +1,16 @@
+/* tambahan kelas status badges */
+.badge { padding:4px 8px; border-radius:6px; color:#fff; font-weight:600; }
+.status-processing { background:#6c757d; }
+.status-baking { background:#f39c12; } /* orange */
+.status-delivery { background:#3498db; } /* blue */
+.status-done { background:#27ae60; } /* green */
+.status-cancelled { background:#c0392b; } /* red */
+
+/* orderCard styling */
+.orderCard { background:#fff; border:1px solid #eee; padding:12px; margin-bottom:12px; border-radius:8px; display:flex; gap:12px; }
+.orderCard .meta { font-size:14px; margin-bottom:6px; }
+.orderCard .cakeSmall { width:80px; }
+.orderCard .desc { flex:1; }
+.actions button { margin-right:6px; padding:6px 8px; border-radius:6px; border:none; cursor:pointer; }
+.actions .advance { background:#2575fc; color:#fff; }
+.actions .cancel { background:#e74c3c; color:#fff; }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Peminjaman Buku - Perpustakaan</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="jquery-3.7.1.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header"> <!--header-->
+            <div class="header-content">
+                <h1 class="logo">📚 PERPUSTAKAAN</h1>
+                <div class="user-info">
+                    <span class="user-name">Sistem Peminjaman</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="breadcrumb">
+                <span>Dashboard</span> > <span>Form Peminjaman Buku</span>
+            </div>
+
+            <div class="form-container">
+                <h2 class="form-title">Form Peminjaman Buku</h2>
+                
+                <form id="bookForm" action="process.php" method="POST" class="book-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap</label>
+                            <input type="text" id="nama" name="nama">
+                            <div class="error-message" id="nama-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="error-message" id="email-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="judul_buku">Judul Buku</label>
+                            <input type="text" id="judul_buku" name="judul_buku" required>
+                            <div class="error-message" id="judul_buku-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lama_peminjaman">Lama Peminjaman (hari)</label>
+                            <select id="lama_peminjaman" name="lama_peminjaman" required>
+                                <option value="">Pilih durasi</option>
+                                <option value="7">7 hari</option>
+                                <option value="14">14 hari</option>
+                                <option value="21">21 hari</option>
+                                <option value="30">30 hari</option>
+                            </select>
+                            <div class="error-message" id="lama_peminjaman-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="komentar">Keterangan/Komentar</label>
+                        <textarea id="komentar" name="komentar" rows="4" placeholder="Masukkan komentar minimal 10 karakter..." required></textarea>
+                        <div class="char-counter"> <!--nampilin jumlah karakter-->
+                            <span id="char-count">0</span>/10 karakter minimum
+                        </div>
+                        <div class="error-message" id="komentar-error"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="resetBtn">🔄 Reset</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">📤 Proses Peminjaman</button>
+                    </div>
+                </form>
+
+                <div class="info-section">
+                    <h3>📋 Data Peminjaman Terdahulu</h3>
+                    <div class="data-preview">
+                        <a href="process.php?action=view" class="view-data-btn">Lihat Semua Data Peminjaman</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Memproses data...</p>
+        </div>
+    </div>
+
+    <!--nampilin komentar lengkap-->
+    <div id="commentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>📝 Komentar Lengkap</h3>
+            <p id="fullComment"></p>
+        </div>
+    </div>
+    
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
