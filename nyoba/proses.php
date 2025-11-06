@@ -41,7 +41,7 @@ if (!empty($_SESSION['data'])) {
     echo "<ul>";
     foreach ($_SESSION['data'] as $index => $item) {
         echo "<li>";
-        echo "<strong># Data Peminjam" . ($index+1) . "</strong><br>";
+        echo "<strong># Data Peminjam " . ($index+1) . "</strong><br>";
         echo "📘 <b>Judul:</b> " . $item['judul'] . "<br>";
         echo "👤 <b>Nama:</b> " . $item['peminjam'] . "<br>";
         echo "📧 <b>Email:</b> " . $item['email'] . "<br>";

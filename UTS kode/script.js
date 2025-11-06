@@ -1,5 +1,4 @@
-// Main JavaScript file with jQuery
-$(document).ready(function() {
+$(document).ready(function() { //inisialisasi
     console.log('📚 Sistem Peminjaman Siap!');
 
     initializeForm();
@@ -12,38 +11,32 @@ $(document).ready(function() {
 });
 
 function initializeForm() {
-    // Counter karakter komentar
-    $('#komentar').on('input', function() {
+    $('#komentar').on('input', function() { //buat ngitung jumlah karakter
         const length = $(this).val().length;
         $('#char-count').text(length);
         $('#char-count').css('color', length >= 10 ? '#28a745' : '#e74c3c');
     });
 
-    // Tombol reset
-    $('#resetBtn').click(function() {
+    $('#resetBtn').click(function() { 
         resetForm();
     });
 
-    // Proses submit
     $('#bookForm').on('submit', function(e) {
         e.preventDefault();
-
         if (validateForm()) {
             showLoading();
 
-            // Kirim form ke server (proses.php)
             const form = this;
             setTimeout(() => {
-                hideLoading(); // sembunyikan loading lebih cepat
-                form.submit(); // kirim form secara asli (native)
-            }, 800); // delay 0.8 detik agar animasi tetap terlihat
+                hideLoading();
+                form.submit(); 
+            }, 800); 
         }
     });
 }
 
 function initializeAnimations() {
-    // Efek hover & fokus
-    $('.form-group input, .form-group select, .form-group textarea')
+    $('.form-group input, .form-group select, .form-group textarea')  //Efek hover & fokus
         .hover(
             function() { $(this).css('transform', 'translateY(-1px)'); },
             function() { if (!$(this).is(':focus')) $(this).css('transform', 'translateY(0)'); }
@@ -57,10 +50,13 @@ function initializeAnimations() {
             if (!$(this).is(':hover')) $(this).css('transform', 'translateY(0)');
         });
 
-    // Hover tombol
-    $('.btn').hover(
-        function() { $(this).addClass('btn-hover'); },
-        function() { $(this).removeClass('btn-hover'); }
+    $('.btn').hover( //efek Hover tombol
+        function() { 
+            $(this).addClass('btn-hover'); 
+        },
+        function() { 
+            $(this).removeClass('btn-hover'); 
+        }
     );
 }
 
@@ -87,7 +83,7 @@ function initializeValidation() {
     });
 }
 
-function validateField(field, valid, msg) {
+function validateField(field, valid, msg) { //validasi
     const error = $(`#${field}-error`);
     const input = $(`#${field}`);
 
@@ -102,7 +98,7 @@ function validateField(field, valid, msg) {
     }
 }
 
-function validateForm() {
+function validateForm() { //validasi keseluruhan
     let ok = true;
     $('.error-message').removeClass('show');
 
@@ -148,7 +144,6 @@ function hideLoading() {
     $('#loadingOverlay').fadeOut(200);
 }
 
-// === Fungsi untuk halaman data ===
 function initializeResultsPage() {
     console.log('Results page aktif');
     initializeModal();

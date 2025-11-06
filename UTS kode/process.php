@@ -21,6 +21,9 @@ if (isset($_GET['action']) && $_GET['action'] === 'clear') {
     exit;
 }
 
+json_encode([]) = mengubah array kosong ([]) menjadi teks JSON kosong ("[]").
+
+file_put_contents() = menulis (menimpa) isi file dengan data baru.
 
 if (isset($_GET['action']) && $_GET['action'] === 'view') { //nampilin data peminjaman
     $data = loadData($dataFile);
@@ -39,7 +42,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'view') { //nampilin data pemi
             <h1>📋 Data Peminjaman Buku</h1>
             <div class="data-table-container">
                 <?php if (count($data) > 0): ?>
-                    <table class="data-table" id="dataTable"> <!--tabel data-->
+                    <table class="data-table" id="dataTable"> 
                         <thead>
                             <tr>
                                 <th>ID</th>
